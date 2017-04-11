@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="html,javascript"/>
+    <title>mon</title>
+</head>
+<body>
+<p>TEST1:</p>
+<button onclick="myFunction()">Try it</button>
+<button onclick="newFunction()">check</button>
+<button onclick="mFunction()">NEW</button>
+<button onclick="ggFunction()">NEW1</button>
+<button onclick="ppFunction()">NEW2</button>
+<p id="demo"></p>
+<p id ="demo1">hai</p>
+<script>
+    var names=["alana","aleena","ammalu"];
+    document.getElementById("demo").innerHTML=names.shift();
+    var names1=["alana","aleena","john","ammalu"];
+    document.getElementById("demo1")innerHTML=names1.unshift("amal");
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    document.getElementById("demo").innerHTML = fruits;
+    var myGirls = ["Cecil", "liya"];
+    var myBoys = ["Emil", "Toy", "Linu"];
+    var myChildren = myGirls.concat(myBoys);
+    document.getElementById("demo").innerHTML = myChildren;
+    function myFunction() {
+        fruits.pop();
+        document.getElementById("demo").innerHTML =fruits;
+    }
+    var flowers = ["rose", "jas", "lotus", "sun"];
+    document.getElementById("demo").innerHTML = flowers;
+    function newFunction() {
+        flowers.toString();
+        document.getElementById("demo").innerHTML = flowers;
+    }
+    var places=["pala","kurup","mem"];
+    document.getElementById("demo").innerHTML = places;
+    function mFunction() {
+        places.push("ekm");
+        document.getElementById("demo").innerHTML = places;
+    }
+    var group = ["Banana", "Orange", "Apple", "Mango"];
+    document.getElementById("demo").innerHTML = group;
+    function ffFunction() {
+        group[0] = "guava";
+        document.getElementById("demo").innerHTML = group;
+    }
+        var add = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo").innerHTML = add;
+        function ggFunction() {
+            delete add[0];
+            document.getElementById("demo").innerHTML = add[0];
+        }
+    var flock = ["Banana", "Apple", "Mango"];
+    document.getElementById("demo").innerHTML = flock;
+    function ppFunction() {
+        flock.sort();
+        document.getElementById("demo").innerHTML = flock;
+    }
+</script>
+
+</body>
+</html>
