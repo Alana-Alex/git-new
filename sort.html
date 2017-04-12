@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sorting</title>
+</head>
+<body>
+    <button onclick="myFunction1()"> check it sort</button>
+    <button onclick="myFunction2()">try it mum </button>
+    <button onclick="myFunction3()">try it alp </button>
+    <button onclick="myFunction4()">try it alp </button>
+    <button onclick="myFunction5()">try it 1 </button>
+    <button onclick="myFunction6()">Try it 2</button>
+    <button onclick="myFunction7()">Try it 3</button>
+    <input id="age" value="18" />
+    <button onclick="myFunction8()">Try it4</button>
+    <p id="demo"> </p>
+    <script>
+    var numbers=[180,28,3,45,5];
+    document.getElementById("demo").innerHTML=numbers;
+    function myFunction1(){
+        numbers.sort();
+        document.getElementById("demo").innerHTML= numbers;
+    }
+    function myFunction2() {
+        numbers.sort(function (a, b) {
+            return a - b });
+        document.getElementById("demo").innerHTML = numbers;
+    }
+    function myFunction3() {
+        numbers.sort(function (a, b) {return b - a });
+        document.getElementById("demo").innerHTML = numbers[0];
+    }
+    function myFunction4() {
+        numbers.sort(function (a, b) {
+            return a - b
+        });
+        document.getElementById("demo").innerHTML = numbers[0];
+    }
+    function myFunction5() {
+        document.getElementById("demo").innerHTML = Boolean(10 > 9);
+    }
+    var b1 = Boolean(100);
+    var b2 = Boolean(3.14);
+    var b3 = Boolean(-15);
+    var b4 = Boolean("Hello");
+    var b5 = Boolean('false');
+    var b6 = Boolean(1 + 7 + 3.14);
+    document.getElementById("demo").innerHTML =
+        "100 is " + b1 + "<br>" +
+        "3.14 is " + b2 + "<br>" +
+        "-15 is " + b3 + "<br>" +
+        "Any (not empty) string is " + b4 + "<br>" +
+        "Even the string 'false' is " + b5 + "<br>" +
+        "Any expression (except zero) is " + b6;
+
+    function myFunction6() {
+        var x = null;
+        document.getElementById("demo").innerHTML = Boolean(x);
+    }
+    function myFunction7() {
+        var x = 10 / "H";
+        document.getElementById("demo").innerHTML = Boolean(x);
+    }
+    function myFunction8() {
+        var age, voteable;
+        age = Number(document.getElementById("age").value);
+        if (isNaN(age)) {
+            voteable = "Error";
+        } else {
+            voteable = (age < 18) ? "Too young" : "Old";
+        }
+        document.getElementById("demo").innerHTML = voteable;
+</script>
+</body>
+</html>
