@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="demo"> </p>
+<p id="demo1"> </p>
+<p>Display "Good day!" if  hour is less than 18:00:</p>
+<p id="demo2">Good Evening!</p>
+age= <input id="age" value="18" />
+<button onclick="myFunction()">Try it</button>
+<button onclick="myFunction1()">check it</button>
+<input id="myInput" type="text" value="apple">
+<button onclick="checkFruit()">Check Fruit</button>
+<p id="demo3"></p>
+<p id="demo4"></p>
+<p id="demo5"></p>
+<script>
+    var j;
+    for (j = 0; j < 10; j++) {
+        document.getElementById("demo4").innerHTML += j + "<br>";
+    }
+    var k;
+    for (k = 5; k < 10; k++) {
+        document.getElementById("demo4").innerHTML += k + "<br>";
+    }
+    var l;
+    for (l = 5; l <= 50; l = l + 5) {
+        document.getElementById("demo4").innerHTML += l + "<br>";
+    }
+    var i;
+    for (i=10;i>0;i--){
+        document.getElementById("demo4").innerHTML += i + "<br>";
+    }
+
+    var text = "";
+    var o;
+    for (o = 1; o < 10; o = o + 2) {
+        text += o + "<br>";
+    }
+    document.getElementById("demo4").innerHTML = text;
+
+    var test = "";
+    var i = 0;
+    while (i < 10) {
+        test += "<br>The number is " + i;
+        i++;
+    }
+    document.getElementById("demo4").innerHTML = test;
+
+    var cars = ["BMW", "Volvo", "celerio"];
+    var p = 0;
+    var text1 = "";
+    while (cars[p]) {
+        text1 += cars[p] + "<br>";
+        p++;
+    }
+    document.getElementById("demo5").innerHTML = text1;
+    function checkFruit() {
+        var text;
+        var fruits = document.getElementById("myInput").value;
+        switch(fruits) {
+            case "Banana":
+                text = "Banana is good!";
+                break;
+            case "Orange":
+                text = "I am not a fan of orange.";
+                break;
+            case "Apple":
+                text = "How you like them apples?";
+                break;
+            default:
+                text = "I have never heard of that fruit.";
+        }
+        document.getElementById("demo3").innerHTML = text;
+    }
+
+        if (new Date().getHours() < 18) {
+        document.getElementById("demo").innerHTML = "Good day!";
+    }
+    var value = Math.sin( 0.5 );
+    document.write("First Test Value : " + value );
+    var value = Math.sin( 90 );
+    document.write("<br />Second Test Value : " + value );
+    var value = Math.sin( 1 );
+    document.write("<br />Third Test Value : " + value );
+    var value = Math.sin( Math.PI/2 );
+    document.write("<br />Fourth Test Value : " + value );
+    var str = new String("Hello world");
+    alert(str.blink());
+    var str = new String("Hello world");
+    alert(str.fontcolor( "red" ));
+    var str = new String("Hai world");
+    var URL = "http://www.tutorialspoint.com";
+    alert(str.link( URL ));
+    var alpha = ["a", "b", "c"];
+    var numeric = [1, 2, 3];
+    var alphaNumeric = alpha.concat(numeric);
+    document.write("alphaNumeric : " + alphaNumeric );
+var arr=[12,75,432];
+document.write(arr.length);
+var x = 5;
+document.getElementById("demo").innerHTML =(x === 5);
+var y = 9;
+document.getElementById("demo1").innerHTML =(y == 8);
+document.getElementById("demo1").innerHTML= 5<7;
+    function myFunction1() {
+        var hour = new Date().getHours();
+        var greeting;
+        if (hour < 18) {
+            greeting = "Good day";
+        } else {
+            greeting = "Good evening";
+        }
+        document.getElementById("demo").innerHTML = greeting;
+    }
+    function myFunction() {
+        var age, voteable;
+        age = document.getElementById("age").value;
+        voteable = (age < 18) ? "Too young" : "Old enough";
+        document.getElementById("demo1").innerHTML = voteable + " to vote.";
+    }
+
+
+</script>
+</body>
+</html>
