@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>heading</title>
+</head>
+<body>
+<p>Replace "Microsoft" with "W3Schools" in the paragraph below:</p>
+<button onclick="myFunction()">Try it</button>
+<p id="demo">Please visit Microsoft!</p>
+<p id="p1"> exec is used to search from a specified pattern</p>
+<button onclick="myFunction1()"> check it </button>
+<p id="demo1"></p>
+<input id="demo11" type="text">
+<button type="button" onclick="myFunction2()">check Input</button>
+<p id="message"></p>
+<p id="demo3"></p>
+<script>
+    var x = 5;
+    var y = 7;
+ wrt = document.getElementById("demo3");
+   wrt.innerHTML = x + " " + y;
+    var k = 7;
+    var l = "4";
+    var o = k + l ;
+    document.getElementById("demo3").innerHTML = o;
+    var person = [];
+    person[0] = "John";
+    person[1] = "jeff";
+    person[2] = 86;
+    document.getElementById("demo").innerHTML =
+        person[0] + " " + person.length;
+
+    var a = 5;
+    wrt= document.getElementById("demo3");
+ wrt.innerHTML = "a is " + a + " and b is " + b;
+
+    var b= 7;
+    try {
+        x = y + 1;
+    }
+    catch(err) {
+        document.getElementById("demo").innerHTML = err.name;
+    }
+
+    function myFunction() {
+        var str = document.getElementById("demo").innerHTML;
+        var txt = str.replace("Microsoft","W3Schools");
+        document.getElementById("demo").innerHTML = txt;
+    }
+    function myFunction1(){
+        test=document.getElementById("p1").innerHTML;
+        document.getElementById("demo1").innerHTML=/s/.exec(test);
+    }
+    function myFunction2() {
+            var message, x;
+            message = document.getElementById("message");
+            message.innerHTML = "";
+            x = document.getElementById("demo11").value;
+            try {
+                if(x == "")  throw "empty";
+                if(isNaN(x)) throw "not a number";
+                x = Number(x);
+                if(x < 5)    throw "too low";
+                if(x > 10)   throw "too high";
+            }
+            catch(err) {
+                message.innerHTML = "Input is " + err;
+            }
+        }
+
+</script>
+</body>
+</html>
