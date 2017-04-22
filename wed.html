@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> title 1</title>
+</head>
+<body>
+<p id="demo"> </p>
+<p> json : javascript object notation </p>
+<form name="myForm" onsubmit="return validateForm()" method="post">
+    Name: <input type="text" name="fname">
+    <input type="submit" value="Submit">
+<p> new number </p>
+    <input id="numb">
+    <button type="button" onclick="myFunction()">Submit</button>
+    <script>
+    var text = '{"employees":[' +
+        '{"firstName":"alan","lastName":"njiu" },' +
+        '{"firstName":"Anna","lst":"Smithaa" }]}';
+    obj = JSON.parse(text);
+    document.getElementById("demo").innerHTML =
+        obj.employees[0].firstName + " " + obj.employees[0].lastName;
+    //next
+    function validateForm() {
+        var x = document.forms["myForm"]["fname"].value;
+        if (x == "") {
+            alert("Name is must ");
+            return false;
+        }
+    }
+    //third
+    function myFunction() {
+        var x, text;
+        x = document.getElementById("numb").value;
+        if (isNaN(x) || x < 1 || x > 10) {
+            text = "Input not valid";
+        } else {
+            text = "Input OK";
+        }
+        document.getElementById("demo").innerHTML = text;
+    }
+
+</script>
+</head>
+</form>
+</script>
+</body>
+</html>
