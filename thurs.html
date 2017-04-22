@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width initial scale=1.0"/>
+    <title>Title</title>
+</head>
+<body>
+<input id="inp1" type="number" max="100">
+<button onclick="myFunction()"> check input </button>
+<p> If the number is greater than 100 , error message will be displayed.</p>
+<p id="demo"></p>
+<input id="id1" type="number" min="100">
+<button onclick="myFunction1()">OK</button>
+<p>If the number is less than 100, error message will be displayed.</p>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<script>
+    function myFunction() {
+        var txt = "";
+        if (document.getElementById("inp1").validity.rangeOverflow) {
+            txt = "Value too large";
+            }
+            else {
+            txt = "Input OK";
+            }
+        document.getElementById("demo").innerHTML = txt;
+        }
+        function myFunction1() {
+            var txtq = "";
+            if (document.getElementById("id1").validity.rangeUnderflow) {
+                txtq = "Value too small";
+            } else {
+                txtq = "Input OK";
+            }
+        }
+        //obj literal
+        var x ="welcome";
+    document.getElementById("demo2").innerHTML=x;
+    var person = {
+        firstName : "alan",
+        lastName  : "alex",
+        age       : 20
+    };
+    document.getElementById("demo").innerHTML =
+        person.firstName + " " + person.lastName;
+    // keyword new
+    var per = new Object();
+    per.firstName = "ala";
+    per.lastName = "alex";
+    per.age = 50;
+    document.getElementById("demo").innerHTML =
+        person.firstName + " is " + person.age + " years old.";
+    // constructor
+function personNew(first, last, age, eye) {
+this.firstName = first;
+this.lastName = last;
+this.age = age;
+}
+var myFather = new personNew("palmn", "gre", 76 );
+var myMother = new personNew("molly", "likky",54 );
+document.getElementById("demo").innerHTML =
+"My father is " + myFather.age + "years old." + " " + "My mother is " + myMother.age + "years old.";
+    // methods
+var Naming = {
+        fName: "nimn",
+        lName : "looe",
+        id       : 5566,
+        fullName : function() {
+            return this.fName + " " + this.lName;
+        }
+    };
+    document.getElementById("demo").innerHTML =Naming.fullName();
+    // change name
+
+    function person11(firstName,lastName,age ) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+       this.changeName = function (name) {
+            this.lastName = name;
+        }
+    }
+    mySis1 = new person11("ivy","joe",6 );
+    mySis1.changeName("alex");
+    document.getElementById("demo").innerHTML =
+        "My sis last name is " + mySis1.lastName;
+
+    function myFunction(a, b) {
+        return a * b;
+    }
+    document.getElementById("demo").innerHTML = myFunction(5 , 2);
+
+    function myFunction(x, y) {
+        if (y === undefined) {
+            y = 0;
+        }
+        return x * y;
+    }
+    document.getElementById("demo").innerHTML = myFunction(4);
+
+    var myNew = {
+        firstName:"emly",
+        lastName: "john",
+        fullName: function() {
+            return this.firstName + " " + this.lastName;
+        }
+    }
+    document.getElementById("demo").innerHTML = myNew.fullName();
+</script>
+</body>
+</html>
