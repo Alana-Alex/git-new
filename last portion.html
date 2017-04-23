@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #container {
+        width:50px;
+        height: 50px;
+        position: relative;
+        background: black;
+    }
+    #animate {
+        width: 19px;
+        height: 19px;
+        position: absolute;
+        background: red;
+    }
+</style>
+<body>
+    <p id="demo"> hai alana</p>
+    <p> my name is alana mary alex. </p>
+    <p id ="intro"> </p>
+    <p class="test"> dom </p>
+    <h1 id="header">Old Header</h1 >
+    <img id="image" src="lap.jpeg" width="30" height="20">
+    <p id="p2"> </p>
+    <p id="p11"> </p>
+    <p> break a code line is after an operator or a comma. </p>
+    <p id="demo22"></p>
+    <button type="button" onclick="document.getElementById('p11').style.color = 'red'">
+        Click Me!</button>
+    <h1>animation</h1>
+    <div id="container">
+        <div id="animate">
+        </div>
+    </div>
+
+    <script>
+        var myElement = document.getElementById("demo");
+        document.getElementById("intro").innerHTML = "introduce" + " " + myElement.innerHTML;
+        document.getElementsByClassName("test")[0].innerHTML = "doc object model";
+        document.getElementsByTagName("p")[0].innerHTML = "vgood";
+        document.querySelectorAll("p")[0].innerHTML = "nice";
+        document.write(Date());
+        var element = document.getElementById("header");
+        element.innerHTML = "New Header";
+        document.getElementById("image").src = "lap.jpg";
+        document.getElementById("p2").style.color = "red";
+        document.getElementById("p2").style.fontFamily = "times new roman";
+        document.getElementById("p2").style.fontSize = "12px";
+        document.getElementById("demo").innerHTML = "how are you.";
+    </script>
+
+</body>
+</html>
