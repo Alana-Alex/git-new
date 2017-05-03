@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form name="myForm">
+    <input type="password" value="" name="userPass" onkeyup="validate()">
+    Strength:<span id="mylocation">no strength</span>
+</form>
+<form name="myform" method="post" onsubmit="return validateform()" >
+    Name: <input type="text" name="name"><br/>
+    Password: <input type="password" name="password"><br/>
+    <input type="submit" value="register">
+</form>
+<form name="f1"  onsubmit="return matchpass()">
+    Password:<input type="password" name="password" /><br/>
+    Re-enter Password:<input type="password" name="password2"/><br/>
+    <input type="submit">
+</form>
+<form name="myform" onsubmit="return validatenumber()" >
+    Number: <input type="text" name="num"><span id="numberloc"></span><br/>
+    <input type="submit" value="submit">
+</form>
+<form name="myform" method="post" onsubmit="return validateemail()">
+    Email: <input type="text" name="email"><br/>
+    <input type="submit" value="register">
+</form>
+<input type="button" value="click" onclick="msg()"/>
+<script>
+    function msg(){
+        var v= prompt("Who are you?");
+        alert("I am "+v);
+
+    }
+    var emp=["Sonu","Vimal","ytin"];
+    for (i=0;i<emp.length;i++){
+        document.write(emp[i] + "<br/>");
+    }
+    var s1="javascript ";
+    var s2="concat example";
+    var s3=s1.concat(s2);
+    document.write(s3);
+
+function validate() {
+        var msg;
+        if(document.myForm.userPass.value.length>5){
+            msg="good";
+        }
+        else{
+            msg="poor";
+        }
+        document.getElementById('mylocation').innerText=msg;
+    }
+    function validateform(){
+        var name=document.myform.name.value;
+        var password=document.myform.password.value;
+
+        if (name==null || name==""){
+            alert("Name can't be blank");
+            return false;
+        }else if(password.length<6){
+            alert("Password must be at least 6 characters long.");
+            return false;
+        }
+    }
+    function matchpass(){
+        var firstpassword=document.f1.password.value;
+        var secondpassword=document.f1.password2.value;
+
+        if(firstpassword==secondpassword){
+            return true;
+        }
+        else{
+            alert("password must be same!");
+            return false;
+        }
+    }
+    function validatenumber(){
+        var num=document.myform.num.value;
+        if (isNaN(num)){
+            document.getElementById("numberloc").innerHTML=alert("Enter Numeric value only");
+            return false;
+        }else{
+            return true;
+        }
+    }
+    function validateemail()
+    {
+        var x=document.myform.email.value;
+        var atposition=x.indexOf("@");
+        var dotposition=x.lastIndexOf(".");
+        if (atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length){
+            alert("Please enter a valid e-mail address \n atpostion:"+atposition+"\n dotposition:"+dotposition);
+            return false;
+        }
+    }
+</script>
+</body>
+</html>
