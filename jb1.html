@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<P id="demo"></P>
+<P id="demo0"></P>
+<P id="demo1"></P>
+<P id="demo2"></P>
+<P id="demo11"></P>
+<P id="demo21"></P>
+<P id="demo9"></P>
+<P id="demo10"></P>
+<P id="demo01"></P>
+<P id="demo31"></P>
+<script>
+    //declaring functions & single parameters
+    function sayHello(name) {
+        document.getElementById("demo9").innerHTML = "hai" +" " +  name;
+
+    }
+    sayHello("minnu");
+
+//2 parametrs
+    function myFunction (name , timeOfDay) {
+     document.getElementById("demo10").innerHTML = "hey" +" " +  name + " " +" time of day is" +" " + timeOfDay;
+    }
+   myFunction ("amal" , "evening");
+
+    // return
+    function myFunction1 (age , place) {
+      return "you are " +" " +  age + " " +" area is" +" " + place;
+    }
+    var returnValue=myFunction1("65" , "pala");
+    document.getElementById("demo01").innerHTML=returnValue;
+
+    // expressions
+    var c="good";
+    var f= function foo() {
+        document.getElementById("demo31").innerHTML = "good";
+    }
+    f();
+    // anonymous fn
+    var f= function () {
+        document.getElementById("demo31").innerHTML = "gdmng";
+    }
+    f();
+
+    //arrays
+
+    var myarr = ["hello","hai","neenu"];
+    myarr[3]="alanaaa";
+    var lesson = {
+        name:"neeenaa",
+         no: 10
+    }
+    document.getElementById("demo5").innerHTML=delete lesson.name;
+
+
+    document.getElementById("demo0").innerHTML=myarr[4];
+    document.getElementById("demo").innerHTML = myarr[0];
+    document.getElementById("demo").innerHTML = myarr.length;
+    document.getElementById("demo1").innerHTML = myarr[3];
+    document.getElementById("demo2").innerHTML = myarr;
+    //js converts no to string
+    //js length counts largest index
+    document.getElementById("demo1").innerHTML = myarr["1"];
+    var greeting="hello world";
+    document.getElementById("demo11").innerHTML = greeting.length;
+    document.getElementById("demo21").innerHTML =typeof (greeting);
+
+
+
+</script>
+</body>
+</html>
