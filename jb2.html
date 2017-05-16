@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javabrains</title>
+</head>
+<body>
+<p id="demo"> </p>
+<p id="demo1"> </p>
+<p id="demo2"> </p>
+<script>
+    var myObj= {
+        firstName: "John",
+        lastName: "Doe"
+    };
+    myObj.myMethod = function() {
+        document.getElementById("demo").innerHTML = "her notes";
+    }
+    myObj.myMethod();
+
+    //OBJ2
+    var person = {
+        firstName:"nimmy",
+        lastName:"crees",
+        age:21,
+        getfullName:function() {
+            return person.firstName + " " + person.lastName;
+        }
+    };
+    var fullName = person.getfullName();
+    document.getElementById("demo1").innerHTML="fullName";
+    // next
+        var person= {
+            firstName:"nimmy",
+            lastName:"crees",
+            age:21,
+            getfullName:function()
+            {
+                return this.firstName + " " + this.lastName;
+            }
+        };
+        var fullName = person.getfullName();
+        var person2 = person;
+        person {};
+        document.getElementById("demo2").innerHTML = person2.getfullName();
+    </script>
+</body>
+    </html>
