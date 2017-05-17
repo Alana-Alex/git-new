@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javabarains</title>
+</head>
+<body>
+<p id="demo"></p>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<p id="demo4"></p>
+<p id="demo5"></p>
+<p id="demo6"></p>
+<script>
+
+    repeat = function repeat(str, count) {
+        if(typeof(count) == "undefined") {
+            count =1;
+        }
+        return count < 1 ? '' : new Array(count + 1).join(str);
+    }
+    document.getElementById("demo6").innerHTML=repeat('Ha!');
+    document.getElementById("demo6").innerHTML=repeat('Ha!',2);
+    document.getElementById("demo6").innerHTML=repeat('Ha!',3);
+//
+
+    Date.prototype.nextDay = function(){
+        var currentDate = this.getDate();
+        return new Date(this.setDate(currentDate +1));
+    }
+
+    var date = new Date();
+    date; //Fri May 16 2014 20:47:14 GMT-0500 (Central Daylight Time)
+    document.getElementById("demo").innerHTML=date.nextDay();
+    //
+
+    String.prototype.reverse = function(){
+        return this.split('').reverse().join('');
+    }
+
+    var str = 'hello world';
+    document.getElementById("demo1").innerHTML=str.reverse();
+    //
+    Array.prototype.duplicator = function(){
+        return this.concat(this);
+    }
+    document.getElementById("demo1").innerHTML = [1,2,3,4,5].duplicator();
+    //
+    var monica = {
+        name: 'Monica Geller',
+        total: 400,
+        deductMontlyFee: function(fee){
+            this.total = this.total - fee;
+        document.getElementById("demo2").innerHTML= this.name + ' remaining balance is '+ this.total;
+        }
+    }
+    var a = 1;
+    function b() {
+        a = 10;
+        return;
+        function a() {}
+    }
+    b();
+    document.getElementById("demo2").innerHTML =a;
+    //
+    var myObject = {
+        price: 20.99,
+        get_price : function() {
+            return this.price;
+        }
+    };
+    var customObject = Object.create(myObject);
+    customObject.price = 19.99;
+
+    delete customObject.price;
+    document.getElementById("demo3").innerHTML=customObject.get_price();
+    //
+
+    var num = 10,
+        name = "Abby mani",
+        obj1 = {
+            value: "first value"
+        },
+        obj2 = {
+            value: "second value"
+        },
+        obj3 = obj2;
+
+    function change(num, name, obj1, obj2) {
+        num = num * 10;
+        name = "pallll";
+        obj1 = obj2;
+        obj2.value = "new value";
+    }
+
+    change(num, name, obj1, obj2);
+
+    document.getElementById("demo4").innerHTML=num; // 10
+    document.getElementById("demo4").innerHTML=name;// "Addy Osmani"
+    document.getElementById("demo4").innerHTML=obj1.value;//"first value"
+    document.getElementById("demo4").innerHTML=obj2.value;//"new value"
+    document.getElementById("demo4").innerHTML =obj3.value;
+//
+    var arr = [6,4,0, 3,-2,1];
+    function bubbleSort(array) {
+        return array.sort(function(a, b){
+            return a - b;
+        });
+    }
+    document.getElementById("demo5").innerHTML =bubbleSort(arr);
+</script>
+</body>
+</html>
