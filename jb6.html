@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jb5</title>
+</head>
+<body>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<p id="demo4"></p>
+<p id="demo5"></p>
+<p id="demo6"></p>
+<p id="demo7"></p>
+<p id="demo8"></p>
+<p>A function can access variables defined inside the function:</p>
+<button type="button" onclick="myFunction2()">Click Me!</button>
+<button type="button" onclick="myFunction22()">Click Me!</button>
+<script>
+    var a=12;
+    function print() {
+        document.getElementById("demo1").innerHTML=b;
+    }
+    print();
+
+    var c = 10;
+    function print1() {
+        document.getElementById("demo1").innerHTML=c;
+    }
+    print1();
+    //
+
+    myFn1();
+    var myFn1=function()
+    {
+        document.getElementById("demo2").innerHTML="HELLO";
+    }
+    //
+    function myFunction() {
+        document.getElementById("demo3").innerHTML = a;
+        a = 12;
+        var a;
+    }
+    myFunction();
+    var x=13;
+    function outer() {
+        var z=23;
+
+        function inner(){
+            document.getElementById("demo4").innerHTML=x;
+            document.getElementById("demo5").innerHTML=z;
+        }
+        inner();
+    }
+    outer();
+    //
+    function myFunction11(d, e) {
+        return d* e;
+    }
+    document.getElementById("demo6").innerHTML = myFunction11(4, 3);
+    //
+    var a1 = "It's alright";
+    var a2 = "He is John";
+    var a3 = "He is amal";
+    document.getElementById("demo7").innerHTML =
+        a1 + "<br>" + a2 + "<br>" + a3;
+    //
+    var f = new String("Johnney");  // x is an object
+    var g = new String("Jomon");  // y is an object
+    document.getElementById("demo6").innerHTML = (f==g);
+    //
+    (function () {
+        document.getElementById("demo8").innerHTML = "Hello! I called myself";
+    })();
+    //
+    function findMax() {
+        var i;
+        var max = -Infinity;
+        for(i = 0; i < arguments.length; i++) {
+            if (arguments[i] > max) {
+                max = arguments[i];
+            }
+        }
+        return max;
+    }
+    document.getElementById("demo7").innerHTML = findMax(4, 5, 6);
+    //
+    var myObject, myArray;
+    function myFunction11(a, b) {
+        return a * b;
+    }
+    myArray = [10, 2]
+    myObject = myFunction.apply(myObject, myArray);
+    document.getElementById("demo8").innerHTML = myObject;
+//local
+    function myFunction2() {
+        var t = 4;
+        document.getElementById("demo8").innerHTML = t * t;
+    }
+    //global
+    var s = 4;
+    function myFunction22() {
+        document.getElementById("demo8").innerHTML = s *s;
+    }
+</script>
+</body>
+</html>
