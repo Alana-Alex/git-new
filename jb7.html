@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jb6</title>
+</head>
+<body>
+<p id="demo"> </p>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<p id="demo4"></p>
+</body>
+<script>
+
+    var a = 12;
+
+    var fn = function() {
+        document.getElementById("demo").innerHTML = a;
+    }
+    setTimeout(fn,1000);
+    document.getElementById("demo").innerHTML="done";
+    //
+
+    var b = 10;
+    var fn1 = function() {
+        document.getElementById("demo").innerHTML =b;
+    }
+    setTimeout(fn1,6000);
+    document.getElementById("demo").innerHTML="yep";
+    //
+    var person = {
+        firstName:"alana",
+        lastName:"alex",
+        getfirstName:function() {
+            document.getElementById("demo1").innerHTML= person.firstName;
+        },
+        getlastName:function() {
+            document.getElementById("demo2").innerHTML = person.lastName;
+        }
+        };
+    //
+    function createPerson1(){
+        var  firstName1="alana";
+        var lastName1="alex";
+    }
+    var returnObj= {
+        "getfirstName": function () {
+            return firstName1
+        },
+        "getlastName": function () {
+            return lastName1
+        },
+        "setfirstName": function (name) {
+            firstName1:name;
+        },
+        "setlasttName": function (name) {
+            lastName1:name;
+        }
+    };
+  return returnObj;
+    }
+    var person2 = createPerson1();
+  document.getElementById("demo3").innerHTML=person2.getFirstName();
+person2.setfirstName("foo");
+    document.getElementById("demo4").innerHTML=person2.getFirstName();
+</script>
+</body>
+</html>
