@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jb8</title>
+</head>
+<body>
+<p id="demo"></p>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<p id="demo4"></p>
+<p id="demo5"></p>
+<p id="demo6"></p>
+<p id="demo7"></p>
+<p id="demo8"></p>
+<p id="demo9"></p>
+<script>
+    var emp1={}
+    emp1.firstName="alana";
+    emp1.lastName="alex";
+    emp1.gender="female";
+    emp1.place="chicago";
+    document.getElementById("demo").innerHTML=emp1.firstName;
+
+    var emp2={}
+    emp2.firstName="ivy";
+    emp2.lastName="alex";
+    emp2.gender="female";
+    emp2.place="desplaines";
+    document.getElementById("demo1").innerHTML=emp2.place;
+    // not need of repeating: use functions .
+
+    function createEmployeeObject(firstName , lastName , gender, place ) {
+        var newObject = {};
+        newObject.firstName = firstName;
+        newObject.lastName = lastName;
+        newObject.gender = gender;
+        newObject.place = place;
+        return newObject;
+    }
+    var emp3 =createEmployeeObject("joju" , "alex" , "male" , "pala");
+    var emp4 =createEmployeeObject("alee" , "alan" , "male" , "mem");
+    document.getElementById("demo2").innerHTML=emp3.firstName;
+    document.getElementById("demo3").innerHTML=emp4.firstName;
+
+    // this
+    function myFunction(Position , Id , No ) {
+        this.Position = Position;
+        this.Id = Id;
+        this.No = No;
+    }
+    var emp5=new myFunction("manager" , 66 , 123);
+    document.getElementById("demo4").innerHTML=emp5.Position + "  " + " and  his no is " + emp5["Id"];
+    //function execution
+    function foo() {
+        document.getElementById("demo").innerHTML = "HELLO";
+    }
+    foo();
+    //second
+    var obj={};
+    obj.fui=function(){
+        document.getElementById("demo5").innerHTML = "HAI";
+    };
+    obj.fui();
+    //new
+
+    //function foo1(){
+    document.getElementById("demo6").innerHTML = "new11";
+    document.getElementById("demo7").innerHTML =this;
+    }
+    new foo1();
+
+    /*
+     function Bicycle(gear , tire pressure ,speed ){
+     this.gear=gear;
+     this.tyre pressure=tyre pressure;
+     this.speed=speed;
+     this.inflatetire=function()
+     {
+     this.tyre pressure+=3;
+     }
+     }
+     var Bicycle= new Bicycle(32, 43, 43);
+     Bicycle.inflatetire();
+     var Bicycle1= new Bicycle(33,21,14);
+     Bicycle1.inflatetire();
+
+     */
+    function Person(color, flower, age, eye) {
+        this.color = color;
+        this.flower = flower;
+        this.age = age;
+        this.eyeColor = eye;
+    }
+
+    var myFather = new Person("red", "rose", 50, "yellow");
+    var myMother = new Person("blue", "jasmine", 48, "green");
+
+    document.getElementById("demo8").innerHTML =
+        "My father is " + myFather.age + ". My mother is " + myMother.age;
+    //
+    function Person1(day ,month) {
+        this.day=day;
+        this.month=month;
+    }
+
+    var myFather11 = new Person1("tues" , "feb");
+    var myMother11 = new Person1("wed", "jan");
+
+    myFather11.nationality = "English";
+
+    document.getElementById("demo8").innerHTML =
+        "My father is " + myFather11.nationality;
+    //
+    function Numbers(one,two,three) {
+        this.one =one;
+        this.two =two;
+        this.three=three;
+    }
+    Numbers.prototype.name = function() {
+        return this.one + " " + this.two
+    };
+
+    var number11 = new Numbers("four" ,"five");
+    document.getElementById("demo9").innerHTML =
+        "number11 is " + number11.name();
+</script>
+ </body>
+</html>
