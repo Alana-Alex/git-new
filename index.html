@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <script src="script/angular.min.js"></script>
+    <title>ANGULAR1</title>
+    </head>
+<body>
+<div ng-app="" ng-init="firstName='alana';lastName='alex'">
+    <p>My first expression: {{ 5 + 5 }}</p>
+    <p>The full name is: {{ firstName + " " + lastName }}</p>
+</div>
+    <div ng-app="" ng-init="points=[1,15,19,2,40]">
+    <p>The third result is <span ng-bind="points[2]"></span></p>
+</div>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+
+    First Name: <input type="text" ng-model="firstName"><br>
+    Last Name: <input type="text" ng-model="lastName"><br>
+    <br>
+    Full Name: {{firstName + " " + lastName}}
+</div>
+
+<div data-ng-app="" data-ng-init="quantity=1;price=5">
+    <h2> Calculator</h2>
+    Quantity: <input type="number" ng-model="quantity">
+    Price: <input type="number" ng-model="price">
+    <p><b>Total in dollar:</b> {{quantity * price}}</p>
+</div>
+
+<div ng-app="myApp" w3-test-directive></div>
+<form ng-app="" name="myForm">
+    Email:
+    <input type="email" name="myAddress" ng-model="text">
+    <span ng-show="myForm.myAddress.$error.email">Not a valid e-mail address</span>
+</form>
+
+<p>Enter your e-mail address in the input field. AngularJS will display an errormessage if the address is not an e-mail.</p>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+        $scope.firstName= "aleen";
+        $scope.lastName= "joe";
+    });
+
+    var app = angular.module("myApp", []);
+    app.directive("w3TestDirective", function() {
+        return {
+            template : "i done it"
+        };
+    });
+</script>
+</body>
+</html>
