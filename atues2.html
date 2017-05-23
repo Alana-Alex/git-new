@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <script src="script/angular.min.js"></script>
+    <title>ang2</title>
+</head>
+<style>
+    input.ng-invalid {
+        background-color:green;
+    }
+</style>
+<body>
+<form ng-app="" name="myForm">
+    Email:
+    <input type="email" name="myAddress" ng-model="text">
+    <span ng-show="myForm.myAddress.$error.email">Not a valid e-mail address</span>
+
+<p>Enter your e-mail address</p>
+
+    Enter your name:
+    <input name="myName" ng-model="myText" required>
+</form>
+
+<p>enter your name.</p>
+
+</body>
+</html>
+
+</body>
+</html>
