@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <script src="script/angular.min.js"></script>
+    <title>ang3</title>
+</head>
+<body>
+<div ng-app="myApp" ng-controller="myCtrl">
+    <h1 ng-click="changeName()">{{firstname}}</h1>
+    <h1>{{carname}}</h1>
+    <h1>{{color}}</h1>
+        <p>The scope of the controller's favorite color:</p>
+        <h1>{{color}}</h1>
+
+    <p>The rootScope's favorite color is still:</p>
+    <h1>{{color}}</h1>
+<p>The name is {{ lastName | lowercase }}</p>
+
+</div>
+
+<script>
+
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+        $scope.firstname = "alee";
+        $scope.changeName = function() {
+            $scope.firstname = "joe";
+        }
+        $scope.carname = "Volvo";
+        $scope.color = "red";
+        $scope.firstName = "John",
+            $scope.lastName = "Doe"
+    });
+</script>
+<p>car name </p>
+<p> change name when clicks </p>
+</body>
+</html>
