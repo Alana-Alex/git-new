@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width"/>
+    <script src="script/angular.min.js"></script>
+    <title>ang4</title>
+</head>
+<body>
+<div ng-app="myApp" ng-controller="personCtrl">
+    <p>The name is {{ lastName | lowercase }}</p>
+    <p>The name is {{ lastName | uppercase }}</p>
+    <p>Looping with objects:</p>
+    <ul>
+        <li ng-repeat="x in names | orderBy:'country'">
+            {{ x.name + ', ' + x.country }}
+        </li>
+    </ul>
+    <p> price: {{price| currency}} </p>
+<p> by using filter we can sort items in the array </p>
+   <ul>
+       <li ng-repeat="x in flowers | filter:'r'">
+           {{ x }}
+       </li>
+   </ul>
+    <p> get the item based on our search.</p>
+    <p>search: <input type="text" ng-model="test"> </p>
+    <ul>
+        <li ng-repeat="x in places | filter:test">
+        {{ x }}
+        </li>
+    </ul>
+
+</div>
+
+<script>
+    angular.module('myApp', []).controller('personCtrl', function($scope) {
+        $scope.firstName = "John",
+            $scope.lastName = "Doe"
+        $scope.names = [
+            {name:'alana',country:'india'},
+            {name:'alan',country:'north'},
+            {name:'anju',country:'usa'},
+            {name:'akh',country:'sweden'},
+            {name:'jijo',country:'afgh'},
+            {name:'amal',country:'pak'},
+            {name:'alan jose',country:'india'},
+            {name:'alex',country:'india'},
+            {name:'jinu',country:'india'}
+        ];
+        $scope.price=52;
+
+        $scope.flowers=[
+            'rose',
+            'jasmine',
+            'rufflassia',
+            'hibiscus'
+        ];
+        $scope.places=[
+            'kurup',
+            'chicago',
+            'ny',
+            'mem',
+            'florida'
+        ];
+    });
+</script>
+</body>
+</html>
+
