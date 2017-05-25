@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <script src="script/angular.min.js"></script>
+    <title>main</title>
+</head>
+<body>
+<div ng-app="myApp" ng-controller="myCtrl">
+    <p>This header will changes:</p>
+    <h1>{{myHeader}}</h1>
+    <p>The hexadecimal value of 255 is:</p>
+    <h1>{{hex}}</h1>
+
+    <div ng-app="myApp" ng-controller="customersCtrl">
+
+        <table>
+            <tr ng-repeat="x in names">
+                <td>{{ x.Name }}</td>
+                <td>{{ x.Country }}</td>
+            </tr>
+        </table>
+</div>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope, $timeout) {
+        $scope.myHeader = "Hello World!";
+        $timeout(function () {
+            $scope.myHeader = "this is the timeout";
+        }, 1000);
+
+        app.service('hexafy', function() {
+            this.myFunc = function (x) {
+                return x.toString(16);
+            }
+        });
+
+        app.controller('myCtrl', function($scope, hexafy) {
+            $scope.hex = hexafy.myFunc(255);
+        });
+
+        app.controller('customersCtrl', function($scope, $http) {
+            $http.get("customers.php")
+                .then(function (response) {$scope.names = response.data.records;});
+    });
+</script>
+
+</body>
+</html>
+
