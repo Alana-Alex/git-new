@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <script src="script/angular.min.js"></script>
+    <title>ang7</title>
+</head>
+<body>
+<p> ng-options are used to select </p>
+<div ng-app="myApp" ng-controller="myCtrl">
+    <select ng-model="selectedName" ng-options="x for x in names">
+    </select>
+
+    <select>
+        <option ng-repeat="x in names">{{x}}</option>
+    </select>
+
+    <p>Select a car:</p>
+    <select ng-model="selectedCar">
+        <option ng-repeat="x in cars" value="{{x.model}}">{{x.model}}</option>
+    </select>
+    <h1> select: {{selectedCar}}</h1>
+
+    <select ng-model="selectedCar" ng-options="x.model for x in cars">
+    </select>
+    <h1>selection: {{selectedCar.model}}</h1>
+    <p>color is: {{selectedCar.color}}</p>
+
+    <select ng-model="selectedplaces" ng-options="x for (x, y) in places">
+    </select>
+    <h1>You selected: {{selectedplaces}}</h1>
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+        $scope.names = ["alan", "liya", "ivy"];
+
+        $scope.names = ["alana", "anu", "ammu"];
+
+        $scope.cars = [
+            {model : "celerio", color : "blue"},
+            {model : "camry", color : "black"},
+            {model : "scion", color : "green"}
+        ];
+        $scope.cars = [
+            {model : "Ford ", color : "red"},
+            {model : "corollaFiat 500", color : "blue"},
+            {model : "ciya", color : "yellow"}
+        ];
+
+        $scope.places = {
+            places01: " kurup",
+            places02: " ching",
+            places03: " pala"
+        }
+    });
+</script>
+</body>
+</html>
