@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <script src="script/angular.min.js"></script>
+    <title>ang9</title>
+</head>
+<div ng-app="myApp" ng-controller="myCtrl">
+    <p>{{ x1 }}</p>
+    <p>{{ x2 }}</p>
+    <p>{{ x3}}</p>
+    <p>{{ x4}}</p>
+    <p>{{ x5}}</p>
+</div>
+
+
+<body ng-app="myApp">
+
+<form name="myForm5">
+    <input name="myInput" ng-model="myInput" required my-directive>
+</form>
+
+<h1>{{myForm5.myInput.$valid}}</h1>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.directive('myDirective', function() {
+        return {
+            require: 'ngModel',
+            link: function(scope, element, attr, mCtrl) {
+                function myValidation(value) {
+                    if (value.indexOf("e") > -1) {
+                        mCtrl.$setValidity('charE', true);
+                    } else {
+                        mCtrl.$setValidity('charE', false);
+                    }
+                    return value;
+                }
+                mCtrl.$parsers.push(myValidation);
+            }
+        };
+    });
+
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+        $scope.x1 = "ALANA";
+        $scope.x2 = angular.lowercase($scope.x1);
+        $scope.x3=angular.uppercase($scope.x2);
+        $scope.x4 = angular.isString($scope.x1);
+        $scope.x5 = angular.isNumber($scope.x2);
+    });
+</script>
+<p>The input field contain the character "e" to be valid.</p>
+</body>
+</html>
+
