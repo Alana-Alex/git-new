@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <script src="script/angular.min.js"></script>
+    <title>ang11</title>
+</head>
+<style>
+    input.ng-invalid {
+        background-color:yellow;
+    }
+    input.ng-valid {
+        background-color:lightgreen;
+    }
+
+    form.ng-pristine {
+        background-color:lightblue;
+    }
+    form.ng-dirty {
+        background-color:red;
+    }
+</style>
+
+<body ng-app="">
+
+<h1> 1 </h1>
+<form name="myform">
+    <input name="myInput" ng-model="myInput" required/>
+    <p> the name is valid or not  </p>
+    <p1> {{myform.myInput.$valid}} </p1>
+</form>
+
+
+<h1> 2 </h1>
+<form name="newform">
+<input type="email" name="myInput" ng-model="myInput" required/>
+<p> the email is valid or not  </p>
+<p1> {{newform.myInput.$valid}} </p1>
+</form>
+
+
+<h1> 3 </h1>
+    <form name="myForm1">
+        <input name="myName" ng-model="myName" required>
+    </form>
+
+
+<h1> 4 </h1>
+<form name="myForm2">
+    <p> write anything in the field </p>
+    <input name="myName1" ng-model="myName1" required>
+    <p>The form gets red color when it is  modified</p>
+</form>
+
+</body>
+</html>
