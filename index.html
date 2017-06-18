@@ -1,57 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="app">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width"/>
-    <script src="script/angular.min.js"></script>
-    <title>ANGULAR1</title>
-    </head>
+    <title>Demo App</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-route.min.js"></script>
+    <script src="Scripts/jquery-2.2.4.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="Content/Styles/Bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="Content/Styles/Bootstrap/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="Content/Styles/site.css" />
+    <script src="App/app.js"></script>
+    <script src="App/Factories/productFactory.js"></script>
+    <script src="App/Services/logService.js"></script>
+    <script src="App/Controllers/homeController.js"></script>
+    <script src="App/Controllers/productsController.js"></script>
+  
+    <style>
+        .start-header {
+            padding-top: 40px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
 <body>
-<div ng-app="" ng-init="firstName='alana';lastName='alex'">
-    <p>My first expression: {{ 5 + 5 }}</p>
-    <p>The full name is: {{ firstName + " " + lastName }}</p>
-</div>
-    <div ng-app="" ng-init="points=[1,15,19,2,40]">
-    <p>The third result is <span ng-bind="points[2]"></span></p>
-</div>
+  
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Product Manager App</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <div class="pull-right">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#/">Home</a></li>
+                        <li><a href="#/about">About</a></li>
+                        <li><a href="#/contact">Contact</a></li>
+                        <li><a href="#/products">Products</a></li>
+                    </ul>
+                </div>
 
-<div ng-app="myApp" ng-controller="myCtrl">
+            </div>       
+        </div>
+    </nav>
+    <br />
+    <br />
+    <div class="container">
+        <div class="start-header">
+                <div ng-view></div>
+        </div>
+    </div>
 
-    First Name: <input type="text" ng-model="firstName"><br>
-    Last Name: <input type="text" ng-model="lastName"><br>
-    <br>
-    Full Name: {{firstName + " " + lastName}}
-</div>
-
-<div data-ng-app="" data-ng-init="quantity=1;price=5">
-    <h2> Calculator</h2>
-    Quantity: <input type="number" ng-model="quantity">
-    Price: <input type="number" ng-model="price">
-    <p><b>Total in dollar:</b> {{quantity * price}}</p>
-</div>
-
-<div ng-app="myApp" w3-test-directive></div>
-<form ng-app="" name="myForm">
-    Email:
-    <input type="email" name="myAddress" ng-model="text">
-    <span ng-show="myForm.myAddress.$error.email">Not a valid e-mail address</span>
-</form>
-
-<p>Enter your e-mail address in the input field. AngularJS will display an errormessage if the address is not an e-mail.</p>
-
-<script>
-    var app = angular.module('myApp', []);
-    app.controller('myCtrl', function($scope) {
-        $scope.firstName= "aleen";
-        $scope.lastName= "joe";
-    });
-
-    var app = angular.module("myApp", []);
-    app.directive("w3TestDirective", function() {
-        return {
-            template : "i done it"
-        };
-    });
-</script>
+    <footer class="footer">
+        <div class="container">
+            <div class="center-block">
+                <p class="text-muted">&copy; Product Manager App-{{todayDate}}</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
